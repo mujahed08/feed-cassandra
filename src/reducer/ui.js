@@ -1,14 +1,23 @@
-import { LOADING } from '../action/action-types'
+import { createSlice } from '@reduxjs/toolkit'
 
-const INITIAL_STATE = {
-    loading : false,
-    modalCount : 0
-}
-  
-export default function (state = INITIAL_STATE, action) {
-    switch (action.type) {
-        case LOADING :
-            return {...state, loading : action.flag}
-        default : return state;
-    }
-}
+
+const slice = createSlice({
+    name: 'ui',
+    initialState: {
+        loading : false,
+        modalCount : 0,
+        path : ''
+    },
+    reducers: {
+        setLoading: (state, action) => {
+            state.loading = action.payload
+        },
+        setPath: (state, action) => {
+            state.path = action.payload
+        }
+    },
+});
+
+export const { setLoading, setPath } = slice.actions
+
+export default slice.reducer

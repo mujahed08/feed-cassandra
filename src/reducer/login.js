@@ -1,14 +1,19 @@
 import { LOG_IN } from "../action/action-types";
 
+import { createSlice } from '@reduxjs/toolkit'
 
-const INITIAL_STATE = {
-    session : {}
-}
-  
-export default function (state = INITIAL_STATE, action) {
-    switch (action.type) {
-        case LOG_IN :
-            return {...state, session : action.payload}
-        default : return state;
-    }
-}
+const slice = createSlice({
+    name: 'login',
+    initialState: {
+        session : {}
+    },
+    reducers: {
+        login: (state, action) => {
+            state.session = action.payload
+        },
+    },
+});
+
+export const { login } = slice.actions
+
+export default slice.reducer

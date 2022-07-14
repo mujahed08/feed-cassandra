@@ -4,16 +4,16 @@ import { Nav, Col, Row, Navbar, NavDropdown, Container } from 'react-bootstrap';
 
 export default () => {
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="dark" variant="dark" expand="lg">
           <Container fluid>
-            <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+            <Navbar.Brand href="#home">React-Cassandra</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
-              <Nav.Link as={Link} to="/home" eventKey="link-1">Home</Nav.Link>
-              <Nav.Link as={Link} to="/signup" eventKey="link-2">Signup</Nav.Link>
+              <Nav.Link as={Link} to="/home">Home</Nav.Link>
+              <Nav.Link as={Link} to="/signup">Signup</Nav.Link>
                 <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/users">Users</NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.2">
                     Another action
                   </NavDropdown.Item>

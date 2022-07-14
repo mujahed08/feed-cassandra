@@ -1,7 +1,7 @@
-import { takeLatest, call } from 'redux-saga/effects';
+import { takeLatest, call, put } from 'redux-saga/effects';
 import { alert } from "../common/modal";
 import { SHOW_ERROR, HIST_PUSH } from "../action/action-types";
-import { history } from '../store';
+import { setPath } from '../reducer/ui';
 
 
 function* showErrorSaga({error}) {
@@ -22,7 +22,7 @@ export function* watchShowErrorSaga() {
 
 
 function* histPushSaga({path}) {
-    yield call(history.push, path)
+    yield put(setPath, path)
 }
 
 export function* watchHistPushSaga() {

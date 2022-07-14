@@ -1,14 +1,14 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
 import { logIn } from '../action/login';
 import { LOGIN_USER } from '../action/action-types';
-import { loginUserApi } from '../api/login'
 import { showError, loading, histPush } from '../action/ui';
+import { signupApi } from '../api/signup';
 
 function* loginUserSaga({payload}) {
 
   try {
     yield put(loading(true))
-    const response = yield call(loginUserApi, payload);
+    const response = yield call(signupApi, payload);
     yield put(logIn(response));
     yield put(histPush('/home'))
   } catch(error) {

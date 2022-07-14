@@ -7,8 +7,11 @@ const axiosApi = axios.create({
   baseURL: REACT_APP_APP_URL,
 });
 
-axios.interceptors.request.use(function (config) {
-  return config;
+axiosApi.interceptors.request.use(function (config) {
+  
+  config.headers = {'username': 'mujahed08', ...config.headers}
+  console.log(REACT_APP_APP_URL)
+  return config
 });
 
 axiosApi.interceptors.response.use(
@@ -22,4 +25,11 @@ export async function get(url, config) {
       ...config,
     })
     .then((response) => response.data);
+}
+
+export async function post(url, data, config) {
+  return await axiosApi.post(url, data, {
+      ...config
+    })
+    .then((response) => response.data)
 }

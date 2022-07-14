@@ -1,3 +1,3 @@
 //Post
-export const GET_POSTS = "/posts";
-export const GET_POST_DETAILS = "/posts";
+export const SIGNUP_API = "/auth/signup";
+export const USER_ALL_GET = '/user/all'
